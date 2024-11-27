@@ -1,1 +1,2 @@
 temporary file for testing new github ssh configuration
+succesfully setup ssh locally, now testing slurm config
