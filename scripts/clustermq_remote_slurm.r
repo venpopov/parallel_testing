@@ -33,4 +33,5 @@ res <- Q(fun = parameter_recovery,
   n_jobs = 10
 )
 
+if (!dir.exists("output")) dir.create("output")
 saveRDS(do.call(rbind, res), "output/parameter_recovery.rds")
