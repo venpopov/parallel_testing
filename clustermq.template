@@ -1,0 +1,21 @@
+ssh -o "ExitOnForwardFailure yes" -f
+    -R {{ ctl_port }}:localhost:{{ local_port }}
+    -R {{ job_port }}:localhost:{{ fwd_port }}
+    {{ ssh_host }}
+    "module load mamba; source activate r-4.4.2; R --no-save --no-restore -e
+        'clustermq:::ssh_proxy(ctl={{ ctl_port }}, job={{ job_port }})'
+        > {{ ssh_log | /dev/null }} 2>&1"
+
+
+#!/usr/bin/env bash
+#SBATCH --job-name={{ job_name }}
+#SBATCH --output={{ log_file | /dev/null }}
+#SBATCH --error={{ log_file | /dev/null }}
+#SBATCH --mem-per-cpu={{ memory | 4096 }}
+#SBATCH --array=1-{{ n_jobs }}
+#SBATCH --cpus-per-task={{ cores | 1 }}
+
+module load {{ bashenv | default_bash_env}}
+source activate {{mamba | default_mamba_env_name}}
+ulimit -v $(( 1024 * {{ memory | 4096 }} ))
+CMQ_AUTH={{ auth }} R --no-save --no-restore -e 'clustermq:::worker("{{ master }}")'

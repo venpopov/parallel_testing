@@ -2,7 +2,17 @@
 # This is a toy example testing the `clustermq` package with the `multiprocess` scheduler
 
 library(clustermq)
-options(clustermq.scheduler = "slurm")
+options(
+  clustermq.scheduler = "ssh", 
+  clustermq.ssh.host = "uzh_cluster",
+  clustermq.ssh.log = "~/cmq_ssh.log",
+  clustermq.template = "clustermq.template",
+  clustermq.defaults = list(
+      bashenv = "mamba",
+      mamba = "r-4.4.2",
+      n_jobs = 2
+  )
+)
 
 # grid of parameters to iterate over
 pars <- expand.grid(
@@ -33,5 +43,5 @@ Q(fun = recover_mixture2p,
   kappa = pars$kappa, 
   p_mem = pars$p_mem,
   pkgs = c("dplyr"),
-  n_jobs = 10
+  n_jobs = 2
 )
