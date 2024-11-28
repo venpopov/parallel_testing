@@ -2,7 +2,6 @@
 # No extra packages used for simplicity
 
 library(clustermq)
-options(clustermq.scheduler = "multiprocess")
 
 # grid of parameters to iterate over
 pars <- expand.grid(
