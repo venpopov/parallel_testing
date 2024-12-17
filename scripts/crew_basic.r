@@ -36,8 +36,3 @@ res <- ctrl$map(
 )
 
 ctrl$terminate()
-
-microbenchmark::microbenchmark(
-  purrr::pmap_dfr(pars, recover_mixture2p),
-  times = 10
-)
