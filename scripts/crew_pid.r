@@ -33,3 +33,5 @@ ctrl$wait(mode = "all")
 res <- ctrl$collect()
 res
 res$result
+
+ctr$summary()
