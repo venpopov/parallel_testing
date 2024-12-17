@@ -819,6 +819,18 @@
       ],
       "Hash": "110ee9d83b496279960e162ac97764ce"
     },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "stats"
+      ],
+      "Hash": "f9d226d88d4087d817d4e616626ce8e5"
+    },
     "mirai": {
       "Package": "mirai",
       "Version": "1.3.1",
@@ -832,9 +844,14 @@
     },
     "mixtur": {
       "Package": "mixtur",
-      "Version": "1.2.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.2.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "mixtur",
+      "RemoteUsername": "venpopov",
+      "RemoteRef": "rescale_parameters",
+      "RemoteSha": "9627bbec5d07d71fed9c8ee0b2d28566f9b05b87",
       "Requirements": [
         "R",
         "dplyr",
@@ -842,7 +859,7 @@
         "rlang",
         "tidyr"
       ],
-      "Hash": "535894e8453eb4bfff49e092af043f31"
+      "Hash": "fb21e40c04ad681b83695a0ea6d2d26c"
     },
     "munsell": {
       "Package": "munsell",
